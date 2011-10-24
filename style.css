@@ -1,0 +1,214 @@
+/*
+Theme Name:    Flatline
+Theme URI:     http://spaceninja.com/flatline
+Description:   Flatline is a base theme for WordPress with HTML5 awesomesauce added.
+Version:       1.0
+Author:        Scott Vandehey
+Author URI:    http://spaceninja.com/
+License:       GNU General Public License v3.0
+License URI:   http://www.gnu.org/licenses/gpl-3.0.html
+
+Flatline requires WordPress 3.1 - it's possible it will work in older versions, but you will miss out on new features.
+
+TODO:
+- add more comments
+- attachment pages
+- figure out how to override 25 posts/archive page
+- custom header image support
+- add admin options page (gravatar size, optional sidebar, optional nav, optional copyright)
+- add flexbox polyfill
+- add html5 boilerplate css?
+- default styles (no colors, no borders, simple typography, nav, layout, easy to override)
+- wordpress theme check
+
+*/
+
+/* Required WordPress Core Styles --------------------------------------------
+   @see http://codex.wordpress.org/Theme_Review#WordPress-Generated_CSS_Classes */
+
+/* image alignment */
+.alignnone,
+.aligncenter,
+.alignright,
+.alignleft,
+.default {
+	margin: .5em 1.5em 1em;;
+}
+.alignnone {
+	margin-left: 0;
+}
+.aligncenter {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+.alignright {
+	float: right;
+	margin-right: 0;
+}
+.alignleft {
+	float: left;
+	margin-left: 0;
+}
+
+/* captions and galleries */
+.wp-caption {
+	padding: 10px;
+}
+.wp-caption img {
+	display: block;
+	margin: 0 auto;
+}
+.gallery-item {
+	float: left;
+	width: 33%; /* default is 3 columns */
+}
+.gallery-columns-1 .gallery-item { width: 100%; }
+.gallery-columns-2 .gallery-item { width: 50%; }
+.gallery-columns-4 .gallery-item { width: 25%; }
+.gallery-columns-5 .gallery-item { width: 20%; }
+.gallery-item, .wp-caption {
+	text-align: center;
+}
+.gallery-icon a, .wp-caption a {
+	display: block;
+}
+.gallery-icon img, .wp-caption img {
+	border: 0;
+}
+.gallery-caption, .wp-caption-text {
+	margin: 0;
+	padding-top: .5em;
+}
+
+/* these are required but don't have to be defined */
+.sticky {}
+.bypostauthor {}
+
+/* Colors and Fonts ------------------------------------------------------- */
+body {
+	margin: 0;
+	background: #eee;
+	color: #333;
+	font: 87.5%/1.5 "Helvetica Neue", Arial, sans-serif;
+}
+#page {
+	width: 960px;
+	margin: 0 auto;
+	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.25);
+	   -moz-box-shadow: 0 0 10px rgba(0,0,0,.25);
+	     -o-box-shadow: 0 0 10px rgba(0,0,0,.25);
+	        box-shadow: 0 0 10px rgba(0,0,0,.25);
+}
+#site-header {
+	background: #cfc;
+	padding: 15px;
+}
+#content {
+	background: #fcc;
+	width: 600px;
+	padding: 15px;
+}
+#sidebar {
+	background: #ccf;
+	width: 300px;
+	padding: 15px;
+}
+#navigation {
+	background: #ffc;
+	padding: 15px;
+}
+#site-footer {
+	background: #cfc;
+	padding: 15px;
+}
+#sidebar-footer .sidebar {
+	background: #ffc;
+	margin-left: 15px;
+}
+#sidebar-footer .sidebar:first-child {
+	margin-left: 0;
+}
+#sidebar-footer.one-sidebar .sidebar {
+	width: 930px;
+}
+#sidebar-footer.two-sidebars .sidebar {
+	width: 450px;
+}
+#sidebar-footer.three-sidebars .sidebar {
+	width: 300px;
+}
+
+/* Wordpress Styles ------------------------------------------------------- */
+pre, code, kbd, samp {
+	font-family: monospace, serif;
+	font-size: 1em;
+}
+.notice {
+	border: 1px solid #c00;
+	background: #ffc;
+	padding: .25em;
+}
+.error {
+	border: 1px solid #c00;
+	background: #fcc;
+	padding: .25em;
+}
+img.wp-smiley {
+	/* http://themeshaper.com/2011/09/09/let-your-wordpress-smilies-smile/ */
+	background: none;
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
+
+/* Vertical Flexbox Layout ------------------------------------------------ */
+#page {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	-moz-box-orient: vertical;
+	-webkit-box-orient: vertical;
+	box-orient: vertical;
+}
+#site-header {
+	-moz-box-ordinal-group: 1;
+	-webkit-box-ordinal-group: 1;
+	box-ordinal-group: 1;
+}
+#main {
+	-moz-box-ordinal-group: 3;
+	-webkit-box-ordinal-group: 3;
+	box-ordinal-group: 3;
+}
+#navigation {
+	-moz-box-ordinal-group: 2;
+	-webkit-box-ordinal-group: 2;
+	box-ordinal-group: 2;
+}
+#site-footer {
+	-moz-box-ordinal-group: 4;
+	-webkit-box-ordinal-group: 4;
+	box-ordinal-group: 4;
+}
+
+/* Horizontal Flexbox Layout ----------------------------------------------- */
+#main {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	-moz-box-orient : horizontal;
+	-webkit-box-orient : horizontal;
+	box-orient: horizontal;
+}
+
+/* Footer Flexbox Layout -------------------------------------------------- */
+#sidebar-footer {
+	display: -moz-box;
+	display: -webkit-box;
+	display: box;
+	-moz-box-orient : horizontal;
+	-webkit-box-orient : horizontal;
+	box-orient: horizontal;
+	box-pack: justify;
+}
