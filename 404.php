@@ -33,6 +33,8 @@
 			<h2><?php _e( 'Top Categories', 'flatline' ); ?></h2>
 			<ul><?php wp_list_categories( array(
 				'title_li' => '',
+				'orderby' => 'count',
+				'order' => 'DESC',
 				'heirarchical' => false,
 				'show_count' => true,
 				'number' => 10
