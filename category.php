@@ -1,7 +1,7 @@
 <?php get_header(); ?>
 <!-- category.php -->
 
-<header>
+<header id="page-header">
 	<h1 class="page-title"><?php printf( __( 'Category Archives: %s', 'flatline' ), '<strong>' . single_cat_title( '', false ) . '</strong>' ); ?></h1>
 	<?php
 		$category_description = category_description();
