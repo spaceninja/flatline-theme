@@ -2,10 +2,9 @@
 <?php
 	/**
 	 * The Header for our theme.
-	 *
 	 * Displays all of the <head> section and everything up till <div id="content">
 	 *
-	 * A Word On Source Order
+	 * A Word On Source Order:
 	 *
 	 * As recommended by the HTML5 spec, add your charset declaration early to
 	 * avoid a potential encoding-related security issue in IE. It should come

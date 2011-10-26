@@ -114,12 +114,22 @@ add_action('init', 'flatline_head_cleanup');
 
 /**
  * Register javascript files
+ *
+ * In general, in order to keep page load times to a minimum, it's best to
+ * call any Javascript at the end of the page -- because if a script is slow
+ * to load from an external server, it may cause the whole page to hang.
+ * That said, the Modernizr script needs to run before the browser begins
+ * rendering the page, so that browsers lacking support for some of the new
+ * HTML5 elements are able to handle them properly. Therefore the Modernizr
+ * script is the only Javascript file loaded at the top of the document.
+ *
+ * @see http://html5boilerplate.com/docs/The-markup/
  */
 function flatline_register_scripts() {
 	$tmpl_url = get_template_directory_uri();
-	// modernizr is an html5/css3 polyfill
+	// modernizr is an html5/css3 polyfill - MUST load in header
 	wp_register_script ( 'modernizr', $tmpl_url . '/js/modernizr-2.0.6.min.js', '', '2.0.6', false );
-	// flexie fixes flexbox layouts in bad browsers
+	// flexie fixes flexbox layouts in bad browsers - load in footer
 	wp_register_script ( 'flexie', $tmpl_url . '/js/flexie.min.js', array( 'jquery' ), '1.0.3', true );
 	// re-register jquery to load in the footer
 	wp_register_script ( 'jquery', '', '', '', true );

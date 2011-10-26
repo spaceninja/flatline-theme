@@ -52,6 +52,10 @@ Flatline requires at least WordPress 3.0 (released June 2010). Sorry if you have
 * Navigation menu support
 * Less ugly default styles
 
+## Recommended Plugins
+
+* [Use Google Libraries](http://wordpress.org/extend/plugins/use-google-libraries/) - Configures WordPress to use the Google CDN-hosted copy of jQuery, instead of WordPress' built-in copy. Your users may already have this version cached in their browsers, and Google's CDN is likely far faster than your server. More info: [6,953 reasons why I still let Google host jQuery for me](6,953 reasons why I still let Google host jQuery for me).
+
 ## Child Theme Tips:
 
 * [How to add CSS, JS, and favicons in a WordPress child theme ](http://themeshaper.com/2008/07/02/functions-php-wordpress-child-themes/)
