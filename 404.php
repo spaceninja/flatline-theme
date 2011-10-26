@@ -1,4 +1,9 @@
-<?php get_header(); ?>
+<?php
+	/**
+	 * The template for displaying 404 pages (Not Found).
+	 */
+	get_header();
+?>
 
 <article id="page-404" class="page type-page no-results not-found post-404">
 	<header>

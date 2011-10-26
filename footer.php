@@ -1,3 +1,12 @@
+<?php
+	/**
+	 * The template for displaying the footer.
+	 *
+	 * Contains the closing of the id=content div and all content
+	 * after. Calls sidebar.php for sidebar widgets and 
+	 * sidebar-footer.php for bottom widgets.
+	 */
+?>
 			</div> <!-- /#content -->
 
 			<?php get_sidebar(); ?>

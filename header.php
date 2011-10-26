@@ -1,6 +1,10 @@
 <!doctype html>
 <?php
 	/**
+	 * The Header for our theme.
+	 *
+	 * Displays all of the <head> section and everything up till <div id="content">
+	 *
 	 * A Word On Source Order
 	 *
 	 * As recommended by the HTML5 spec, add your charset declaration early to
@@ -15,7 +19,7 @@
 	 * @see https://github.com/paulirish/html5-boilerplate/wiki/The-markup
 	 */
 ?>
-<?php /* paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither */ ?>
+<?php /* @see paulirish.com/2008/conditional-stylesheets-vs-css-hacks-answer-neither */ ?>
 <!--[if lt IE 7]> <html class="no-js ie6 oldie" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 7]>    <html class="no-js ie7 oldie" <?php language_attributes(); ?>> <![endif]-->
 <!--[if IE 8]>    <html class="no-js ie8 oldie" <?php language_attributes(); ?>> <![endif]-->

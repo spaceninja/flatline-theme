@@ -1,5 +1,7 @@
 <?php
-	/* Search Form
+	/**
+	 * The template for displaying search forms
+	 *
 	 * Normally, we would just use the stock search form, but we want
 	 * to use HTML5 enhancements. If wordpress ever converts the stock
 	 * form to use HTML5, we should really switch back, because

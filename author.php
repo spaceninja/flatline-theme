@@ -1,5 +1,9 @@
-<?php get_header(); ?>
-<!-- author.php -->
+<?php
+	/**
+	 * The template for displaying Author Archive pages.
+	 */
+	get_header();
+?>
 
 <header id="page-header">
 	<?php
@@ -23,6 +27,12 @@
 	?>
 </header>
 
-<?php get_template_part( 'loop', 'author' ); ?>
+<?php
+	/* Run the loop for the author archive page to output the authors posts
+	 * If you want to overload this in a child theme then include a file
+	 * called loop-author.php and that will be used instead.
+	 */
+	get_template_part( 'loop', 'author' );
+?>
 
 <?php get_footer(); ?>

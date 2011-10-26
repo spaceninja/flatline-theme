@@ -1,5 +1,39 @@
 <?php
 /**
+ * flatline functions and definitions
+ *
+ * Sets up the theme and provides some helper functions. Some helper functions
+ * are used in the theme as custom template tags. Others are attached to action and
+ * filter hooks in WordPress to change core functionality.
+ *
+ * The first function, flatline_setup(), sets up the theme by registering support
+ * for various features in WordPress, such as post thumbnails, navigation menus, and the like.
+ *
+ * When using a child theme (see http://codex.wordpress.org/Theme_Development and
+ * http://codex.wordpress.org/Child_Themes), you can override certain functions
+ * (those wrapped in a function_exists() call) by defining them first in your child theme's
+ * functions.php file. The child theme's functions.php file is included before the parent
+ * theme's file, so the child theme functions would be used.
+ *
+ * Functions that are not pluggable (not wrapped in function_exists()) are instead attached
+ * to a filter or action hook. The hook can be removed by using remove_action() or
+ * remove_filter() and you can attach your own function to the hook.
+ *
+ * We can remove the parent theme's hook only after it is attached, which means we need to
+ * wait until setting up the child theme:
+ *
+ * <code>
+ * add_action( 'after_setup_theme', 'my_child_theme_setup' );
+ * function my_child_theme_setup() {
+ *     // We are providing our own filter for excerpt_length (or using the unfiltered value)
+ *     remove_filter( 'excerpt_length', 'flatline_excerpt_length' );
+ *     ...
+ * }
+ * </code>
+ *
+ * For more information on hooks, actions, and filters, see http://codex.wordpress.org/Plugin_API.
+ *
+ *
  * Functions available to override in child themes:
  *
  * flatline_setup()                 - theme defaults and feature support
@@ -12,6 +46,8 @@
  * flatline_copyright()             - copyright statement
  * flatline_comment()               - comment markup
  */
+
+
 
 /**
  * Tell WordPress to run flatline_setup() when the 'after_setup_theme' hook is run.
@@ -85,6 +121,15 @@ if ( ! function_exists( 'flatline_scripts' ) ):
 	}
 endif;
 add_action('wp_enqueue_scripts', 'flatline_scripts');
+
+/**
+ * Add To Head
+ * This function adds links to the HEAD element
+ */
+function flatline_head() { ?>
+	<!--[if lte IE 9]><script src='<?php echo get_template_directory_uri(); ?>/js/flexie.min.js'></script><![endif]-->
+<?php }
+add_action( 'wp_head', 'flatline_head' );
 
 /**
  * Remove inline styles printed when the gallery shortcode is used.
@@ -535,21 +580,3 @@ function numbered_in_page_links( $args = array () ) {
 	print $output . $after;
 }
 add_action( 'numbered_in_page_links', 'numbered_in_page_links', 10, 1 );
-
-/**
- * The Roots theme method for adding google analytics
- * TODO: investigate if this is better
- */
-function flatline_google_analytics() {
-	global $flatline_options;
-	$flatline_google_analytics_id = $flatline_options['google_analytics_id'];
-	$get_flatline_google_analytics_id = esc_attr($flatline_options['google_analytics_id']);
-	if ($flatline_google_analytics_id !== '') {	
-		echo "\n\t<script>\n";
-		echo "\t\tvar _gaq=[['_setAccount','$get_flatline_google_analytics_id'],['_trackPageview'],['_trackPageLoadTime']];\n";
-		echo "\t\t(function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];\n";
-		echo "\t\tg.src=('https:'==location.protocol?'//ssl':'//www')+'.google-analytics.com/ga.js';\n";
-		echo "\t\ts.parentNode.insertBefore(g,s)}(document,'script'));\n";
-		echo "\t</script>\n";
-	}
-}

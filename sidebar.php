@@ -1,3 +1,9 @@
+<?php
+	/**
+	 * The Sidebar containing the primary widget area.
+	 */
+?>
+
 <aside id="sidebar" role="complementary">
 	<?php
 		if ( ! dynamic_sidebar('sidebar-1') ) :

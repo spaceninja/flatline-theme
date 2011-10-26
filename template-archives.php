@@ -1,9 +1,17 @@
 <?php
-/*
-Template Name: Archives Page
-shamelessly lifted from Roots theme
-*/
-get_header(); ?>
+	/**
+	 * Template Name: Archives Page
+	 *
+	 * A custom page template that shows monthly archives,
+	 * categories, tags, and pages. Ignores all actual page content.
+	 *
+	 * The "Template Name:" bit above allows this to be selectable
+	 * from a dropdown menu on the edit page screen.
+	 *
+	 * (Shamelessly lifted from Roots theme)
+	 */
+	get_header();
+?>
 
 <article id="page-archives" class="page type-page no-results page-archives">
 	<header>

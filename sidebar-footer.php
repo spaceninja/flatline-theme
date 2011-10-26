@@ -1,4 +1,8 @@
 <?php
+	/**
+	 * The Footer widget areas.
+	 */
+
 	// make sure none of the footer sidebar areas are empty
 	if ( ! is_active_sidebar( 'sidebar-2' )
 		&& ! is_active_sidebar( 'sidebar-3' )

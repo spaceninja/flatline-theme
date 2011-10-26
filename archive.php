@@ -1,5 +1,14 @@
-<?php get_header(); ?>
-<!-- archive.php -->
+<?php
+	/**
+	 * The template for displaying Archive pages.
+	 *
+	 * Used to display archive-type pages if nothing more specific matches a query.
+	 * For example, puts together date-based pages if no date.php file exists.
+	 *
+	 * Learn more: http://codex.wordpress.org/Template_Hierarchy
+	 */
+	get_header();
+?>
 
 <header id="page-header">
 	<h1 class="page-title">
@@ -12,6 +21,13 @@
 		<?php endif; ?>
 	</h1>
 </header>
-<?php get_template_part( 'loop', 'archive' ); ?>
+
+<?php
+	/* Run the loop for the archives page to output the posts.
+	 * If you want to overload this in a child theme then include a file
+	 * called loop-archive.php and that will be used instead.
+	 */
+	get_template_part( 'loop', 'archive' );
+?>
 
 <?php get_footer(); ?>
