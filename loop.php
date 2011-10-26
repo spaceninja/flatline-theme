@@ -44,7 +44,7 @@
 		<nav class="paged-post-navigation">
 			<?php
 				if ( function_exists( 'flatline_get_pagination' ) ) :
-					flatline_get_pagination( '6', false, false );
+					flatline_get_pagination();
 				else :
 					print '<ul>';
 					if ( $previous = get_next_posts_link( __( 'Older Posts', 'flatline' ) ) )

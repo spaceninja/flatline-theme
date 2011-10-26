@@ -161,19 +161,17 @@ img.wp-smiley {
 
 /* Outermost Flexbox (centers the page) ----------------------------------- */
 body {
-	width: 100%;
-
 	display : -moz-box;
 	display : -webkit-box;
 	display : box;
-	
-	-moz-box-orient : horizontal;
-	-webkit-box-orient : horizontal;
-	box-orient : horizontal;
 
 	-moz-box-pack : center;
 	-webkit-box-pack : center;
 	box-pack : center;
+
+	-moz-box-align: start;
+	-webkit-box-align: start;
+	box-align: start;
 }
 
 /* Vertical Flexbox (puts the navigation above the content) --------------- */
@@ -185,6 +183,10 @@ body {
 	-moz-box-orient: vertical;
 	-webkit-box-orient: vertical;
 	box-orient: vertical;
+
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	box-align: stretch;
 }
 #site-header {
 	-moz-box-ordinal-group: 1;
@@ -212,6 +214,10 @@ body {
 	display: -moz-box;
 	display: -webkit-box;
 	display: box;
+
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	box-align: stretch;
 }
 
 /* Footer Flexbox (sets up footer columns) -------------------------------- */
@@ -223,6 +229,10 @@ body {
 	-moz-box-pack: justify;
 	-webkit-box-pack: justify;
 	box-pack: justify;
+
+	-moz-box-align: stretch;
+	-webkit-box-align: stretch;
+	box-align: stretch;
 }
 
 /* Firefox Flexbox Bugfixes --------------------------------------------------

@@ -61,8 +61,7 @@
  * To override flatline_setup() in a child theme, add your own flatline_setup to your child theme's
  * functions.php file.
  */
-add_action('after_setup_theme', 'flatline_setup');
-if ( ! function_exists( 'flatline_setup' ) ):
+if ( ! function_exists( 'flatline_setup' ) ) :
 	function flatline_setup(){
 
 		// Make Flatline available for translation.
@@ -93,6 +92,7 @@ if ( ! function_exists( 'flatline_setup' ) ):
 
 	}
 endif;
+add_action('after_setup_theme', 'flatline_setup');
 
 /**
  * Remove unnecessary wordpress cruft from wp_head
@@ -115,26 +115,34 @@ add_action('init', 'flatline_head_cleanup');
 /**
  * Register javascript files
  */
-if ( ! function_exists( 'flatline_scripts' ) ):
+function flatline_register_scripts() {
+	$tmpl_url = get_template_directory_uri();
+	// modernizr is an html5/css3 polyfill
+	wp_register_script ( 'modernizr', $tmpl_url . '/js/modernizr-2.0.6.min.js', '', '2.0.6', false );
+	// flexie fixes flexbox layouts in bad browsers
+	wp_register_script ( 'flexie', $tmpl_url . '/js/flexie.min.js', array( 'jquery' ), '1.0.3', true );
+	// re-register jquery to load in the footer
+	wp_register_script ( 'jquery', '', '', '', true );
+}
+add_action('init', 'flatline_register_scripts');
+
+/**
+ * Enqueue javascript files
+ */
+if ( ! function_exists( 'flatline_scripts' ) ) :
 	function flatline_scripts() {
-		wp_enqueue_script( 'modernizr', get_template_directory_uri() . '/js/modernizr-2.0.6.min.js' );
+	  if (!is_admin()):
+			wp_enqueue_script( 'modernizr' );
+			wp_enqueue_script( 'flexie' );
+		endif;
 	}
 endif;
 add_action('wp_enqueue_scripts', 'flatline_scripts');
 
 /**
- * Add To Head
- * This function adds links to the HEAD element
- */
-function flatline_head() { ?>
-	<!--[if lte IE 9]><script src='<?php echo get_template_directory_uri(); ?>/js/flexie.min.js'></script><![endif]-->
-<?php }
-add_action( 'wp_head', 'flatline_head' );
-
-/**
  * Remove inline styles printed when the gallery shortcode is used.
  *
- * Galleries are styled by the theme in Twenty Ten's style.css. This is just
+ * Galleries are styled by the theme in Flatline's style.css. This is just
  * a simple filter call that tells WordPress to not use the default styles.
  */
 add_filter( 'use_default_gallery_style', '__return_false' );
@@ -149,8 +157,9 @@ function flatline_remove_gallery_css( $css ) {
 	return preg_replace( "#<style type='text/css'>(.*?)</style>#s", '', $css );
 }
 // Backwards compatibility with WordPress 3.0.
-if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) )
+if ( version_compare( $GLOBALS['wp_version'], '3.1', '<' ) ) :
 	add_filter( 'gallery_style', 'flatline_remove_gallery_css' );
+endif;
 
 /**
  * Removes the default styles that are packaged with the Recent Comments widget.
@@ -469,6 +478,10 @@ wp_register_sidebar_widget(
  * @see http://robertbasic.com/blog/wordpress-paging-navigation/
 */
 function flatline_get_pagination( $range = 4, $show_first_link = true, $show_last_link = true ) {
+	// allow child themes to override the default and parent theme settings
+	$range = apply_filters( 'flatline_pagination_range', $range );
+	$show_first_link = apply_filters( 'flatline_pagination_show_first_link', $show_first_link );
+	$show_last_link = apply_filters( 'flatline_pagination_show_last_link', $show_last_link );
 	// $paged - number of the current page
 	global $paged, $wp_query;
 	// How many pages do we have?
