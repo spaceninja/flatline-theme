@@ -65,8 +65,26 @@
 			<?php if ( get_bloginfo( 'description' ) ) : // do we have a description? ?>
 				<p id="site-description"><?php bloginfo( 'description' ); ?></p>
 			<?php endif; ?>
-			<p id="skip-link"><em><a href="#navigation"><?php print _e( 'Jump to Navigation', 'dojo' ); ?></a></em> &darr;</p>
+			<p id="skip-link"><em><a href="#content"><?php print _e( 'Jump to Content', 'dojo' ); ?></a></em> &darr;</p>
 		</header>
+
+		<div id="navigation">
+			<nav id="primary-nav" role="navigation">
+				<?php
+					/**
+					 * Our navigation menu. The menu assigned to the primary position
+					 * is the one used. If none is assigned, the menu with the lowest
+					 * ID is used. If one isn't filled out, wp_nav_menu falls back
+					 * to wp_page_menu.
+					 */
+					wp_nav_menu( array(
+						'theme_location' => 'primary',
+						'container' => false
+					) );
+				?>
+			</nav>
+			<?php get_search_form(); ?>
+		</div> <!-- /#navigation -->
 
 		<div id="main">
 			<div id="content" role="main">
