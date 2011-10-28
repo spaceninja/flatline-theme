@@ -343,7 +343,7 @@ if ( ! function_exists( 'flatline_copyright' ) ) :
 	function flatline_copyright() {
 		printf( __( '&copy; Copyright %1$s by %2$s. Powered by %3$s and %4$s.', 'flatline' ),
 			date( 'Y' ),
-			get_bloginfo( 'name' ),
+			apply_filters( 'flatline_copyright_by', get_bloginfo( 'name' ) ),
 			'<a href="http://spaceninja.com/flatline/">Flatline</a>',
 			'<a href="http://wordpress.org/">WordPress</a>'
 		);

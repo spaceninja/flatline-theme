@@ -89,13 +89,17 @@
 					</p>
 				<?php else : // user is logged out ?>
 					<p class="field comment-form-author">
-						<label for="author"><?php _e('Name', 'flatline'); ?></label>
-						<?php if ($req) echo '<span class="required">*</span>'; ?>
+						<label for="author">
+							<?php _e('Name', 'flatline'); ?>
+							<?php if ($req) echo '<span class="required">*</span>'; ?>
+						</label>
 						<input type="text" name="author" id="author" value="<?php echo esc_attr($comment_author); ?>" tabindex="1" <?php if ( $req ) echo 'aria-required="true"'; ?>>
 					</p>
 					<p class="field comment-form-email">
-						<label for="email"><?php _e('Email', 'flatline'); ?></label>
-						<?php if ($req) echo '<span class="required">*</span>'; ?>
+						<label for="email">
+							<?php _e('Email', 'flatline'); ?>
+							<?php if ($req) echo '<span class="required">*</span>'; ?>
+						</label>
 						<input type="email" name="email" id="email" value="<?php echo esc_attr($comment_author_email); ?>" tabindex="2" <?php if ( $req ) echo 'aria-required="true"'; ?>>
 					</p>
 					<p class="field comment-form-url">
