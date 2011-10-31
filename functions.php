@@ -79,7 +79,6 @@ if ( ! function_exists( 'flatline_setup' ) ) :
 
 		// This theme uses Featured Images (also known as post thumbnails) for per-post/per-page Custom Header images
 		add_theme_support( 'post-thumbnails' );
-		// set_post_thumbnail_size(150, 150, false);
 
 		// Add default posts and comments RSS feed links to <head>.
 		add_theme_support( 'automatic-feed-links' );
@@ -274,6 +273,32 @@ if ( ! function_exists( 'flatline_posted_in' ) ) :
 		_e( 'Filed under ', 'flatline');
 		the_category( ', ' );
 		if ( get_the_tags() ) the_tags( ', ',', ' );
+	}
+endif;
+
+/**
+ * Prints the post thumbnail for full posts, if it exists
+ */
+if ( ! function_exists( 'flatline_post_thumb' ) ) :
+	function flatline_post_thumb() {
+		if ( has_post_thumbnail()) : ?>
+			<p class="post-thumb"><a href="<?php the_permalink(); ?>" >
+				<?php the_post_thumbnail( 'large' ); ?>
+			</a></p>
+		<?php endif;
+	}
+endif;
+
+/**
+* Prints the post thumbnail for excerpts, if it exists
+ */
+if ( ! function_exists( 'flatline_excerpt_thumb' ) ) :
+	function flatline_excerpt_thumb() {
+		if ( has_post_thumbnail()) : ?>
+			<p class="post-thumb"><a href="<?php the_permalink(); ?>" >
+				<?php the_post_thumbnail( 'thumbnail' ); ?>
+			</a></p>
+		<?php endif;
 	}
 endif;
 

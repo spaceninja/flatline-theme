@@ -11,10 +11,14 @@ License URI:   http://www.gnu.org/licenses/gpl-3.0.html
 Flatline requires WordPress 3.1 - it's possible it will work in older versions, but you will miss out on new features.
 
 TODO:
+- comment styles
+- post format support
+  - add post format page templates
 - attachment pages
 - custom header image support
 - add admin options page (gravatar size, optional sidebar, optional nav, optional copyright)
 - add secondary navbar to recreate dojo layouts
+- custom header support
 - add html5 boilerplate css?
 - default styles (no colors, no borders, simple typography, nav, layout, easy to override)
 - wordpress theme check

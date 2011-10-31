@@ -19,8 +19,11 @@
 			<?php if ( function_exists( 'flatline_post_header' ) ) flatline_post_header(); ?>
 		</header>
 		<div class="post-content">
-			<?php the_content(); ?>
-			<?php numbered_in_page_links( array ( 'before' => '<nav class="post-nav"><p><strong>' . __( 'Pages:', 'flatline' ) . '</strong> ', 'after' => '</p></nav>' ) ); ?>
+			<?php
+				if ( function_exists( 'flatline_post_thumb' ) ) flatline_post_thumb();
+				the_content();
+				numbered_in_page_links( array ( 'before' => '<nav class="post-nav"><p><strong>' . __( 'Pages:', 'flatline' ) . '</strong> ', 'after' => '</p></nav>' ) );
+			?>
 		</div>
 		<?php
 			// If the author has filled out their description, show a bio on their entries.
