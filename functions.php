@@ -281,7 +281,7 @@ endif;
  */
 if ( ! function_exists( 'flatline_post_thumb' ) ) :
 	function flatline_post_thumb() {
-		if ( has_post_thumbnail()) : ?>
+		if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail()) : ?>
 			<p class="post-thumb"><a href="<?php the_permalink(); ?>" >
 				<?php the_post_thumbnail( 'large' ); ?>
 			</a></p>
@@ -294,7 +294,7 @@ endif;
  */
 if ( ! function_exists( 'flatline_excerpt_thumb' ) ) :
 	function flatline_excerpt_thumb() {
-		if ( has_post_thumbnail()) : ?>
+		if ( function_exists( 'has_post_thumbnail' ) && has_post_thumbnail()) : ?>
 			<p class="post-thumb"><a href="<?php the_permalink(); ?>" >
 				<?php the_post_thumbnail( 'thumbnail' ); ?>
 			</a></p>
