@@ -23,6 +23,8 @@ TODO:
 - default styles (no colors, no borders, simple typography, nav, layout, easy to override)
 - wordpress theme check
 
+- http://wp.smashingmagazine.com/2011/11/01/building-wordpress-themes-you-can-sell/
+
 */
 
 /* Required WordPress Core Styles --------------------------------------------
@@ -97,10 +99,6 @@ body {
 #page {
 	width: 960px;
 	margin: 0 auto;
-	-webkit-box-shadow: 0 0 10px rgba(0,0,0,.25);
-	   -moz-box-shadow: 0 0 10px rgba(0,0,0,.25);
-	     -o-box-shadow: 0 0 10px rgba(0,0,0,.25);
-	        box-shadow: 0 0 10px rgba(0,0,0,.25);
 }
 #site-header {
 	background: #cfc;

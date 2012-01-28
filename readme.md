@@ -29,6 +29,7 @@ Flatline requires at least WordPress 3.0 (released June 2010). Sorry if you have
 * Support for paged comments, threaded comments, and gravatars
 * Archives page template included (lists all pages, monthly archives, and categories)
 * Paged navigation on archive pages (first, next, 1, 2, 3, 4, prev, last)
+* Post thumbnail support
 
 ### HTML5 Features:
 
@@ -45,12 +46,9 @@ Flatline requires at least WordPress 3.0 (released June 2010). Sorry if you have
 
 ### Coming Soon:
 
-* Post thumbnail support (high priority)
-* Admin options page
 * Post format support
 * Custom header image support (maybe)
 * Navigation menu support
-* Less ugly default styles
 
 ## Recommended Plugins
 
