@@ -34,7 +34,7 @@
 		</div>
 		<footer>
 			<p class="comments"><?php comments_popup_link( __( 'Leave a comment', 'flatline' ), __( '1 Comment', 'flatline' ), __( '% Comments', 'flatline' ) ); ?></p>
-			<p class="folksonomy"><?php flatline_posted_in(); ?></p>
+			<p class="taxonomy"><?php flatline_posted_in(); ?></p>
 			<?php if ( function_exists( 'flatline_post_footer' ) ) flatline_post_footer(); ?>
 		</footer>
 	</article>

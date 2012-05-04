@@ -270,7 +270,9 @@ endif;
  */
 if ( ! function_exists( 'flatline_posted_in' ) ) :
 	function flatline_posted_in() {
-		_e( 'Filed under ', 'flatline');
+		echo '<span class="label">';
+		_e( 'Filed under', 'flatline');
+		echo '</span> ';
 		the_category( ', ' );
 		if ( get_the_tags() ) the_tags( ', ',', ' );
 	}
@@ -405,11 +407,13 @@ if ( ! function_exists( 'flatline_comment' ) ) :
 				<header>
 					<?php
 						if ( $comment->comment_parent == 0 ) :
-							$avatar_size = 64; // parent comment avatar size
+							// parent comment avatar size
+							$avatar_size = apply_filters( 'flatline_comment_parent_avatar_size', '64' );
 						else :
-							$avatar_size = 48; // reply comment avatar size
+							// reply comment avatar size
+							$avatar_size = apply_filters( 'flatline_comment_reply_avatar_size', '48' );
 						endif;
-						echo get_avatar( $comment, apply_filters( 'flatline_comment_avatar_size', $avatar_size ) );
+						echo get_avatar( $comment, $avatar_size );
 					?>
 					<h3><?php comment_author_link() ?></h3>
 				</header>

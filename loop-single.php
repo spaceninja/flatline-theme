@@ -35,7 +35,7 @@
 					</header>
 					<div class="author-content">
 						<?php the_author_meta( 'description' ); ?>
-						<p>
+						<p class="more">
 							<a href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>">
 								<?php printf( __( 'View all posts by %s', 'flatline' ), get_the_author() ); ?>
 							</a>
@@ -45,7 +45,7 @@
 		<?php endif; ?>
 		<footer>
 			<p class="comments"><?php comments_popup_link( __( 'Leave a comment', 'flatline' ), __( '1 Comment', 'flatline' ), __( '% Comments', 'flatline' ) ); ?></p>
-			<p class="folksonomy"><?php flatline_posted_in(); ?></p>
+			<p class="taxonomy"><?php flatline_posted_in(); ?></p>
 			<?php if ( function_exists( 'flatline_post_footer' ) ) flatline_post_footer(); ?>
 		</footer>
 	</article>
