@@ -50,13 +50,13 @@
 		</footer>
 	</article>
 
+	<?php comments_template( '', true ); ?>
+
 	<nav class="single-post-navigation">
 		<ul>
 			<?php previous_post_link( '<li class="previous"><strong>' . apply_filters( 'flatline_single_previous_post', __( 'Previous Post:', 'flatline' ) ) . '</strong> %link</li>' ); ?>
 			<?php next_post_link('<li class="next"><strong>' . apply_filters( 'flatline_single_next_post', __( 'Next Post:', 'flatline' ) ) . '</strong> %link</li>'); ?>
 		</ul>
 	</nav>
-
-	<?php comments_template( '', true ); ?>
 
 <?php endwhile; ?>
