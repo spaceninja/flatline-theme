@@ -198,7 +198,7 @@ add_filter( 'excerpt_length', 'flatline_excerpt_length' );
  */
 if ( ! function_exists( 'flatline_continue_reading_link' ) ) :
 	function flatline_continue_reading_link() {
-		return ' <a href="'. esc_url( get_permalink() ) . '">' . __( 'Keep&nbsp;reading', 'flatline' ) . '</a>';
+		return ' <a href="'. esc_url( get_permalink() ) . '" class="more">' . __( 'Keep&nbsp;reading', 'flatline' ) . '</a>';
 	}
 endif;
 
@@ -276,6 +276,16 @@ if ( ! function_exists( 'flatline_posted_in' ) ) :
 		the_category( ', ' );
 		if ( get_the_tags() ) the_tags( ', ',', ' );
 	}
+endif;
+
+/**
+ * Prints the post footer, so we can override in child themes
+ */
+if ( ! function_exists( 'flatline_post_footer' ) ) :
+	function flatline_post_footer() { ?>
+		<p class="comments"><?php comments_popup_link( __( 'Leave a comment', 'flatline' ), __( '1 Comment', 'flatline' ), __( '% Comments', 'flatline' ) ); ?></p>
+		<p class="taxonomy"><?php flatline_posted_in(); ?></p>
+	<?php }
 endif;
 
 /**
