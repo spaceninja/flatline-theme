@@ -14,6 +14,7 @@
 		<strong><?php echo get_search_query(); ?></strong>
 		<em>(<?php print $total_results; ?>)</em>
 	</h1>
+	<?php get_search_form(); ?>
 </header>
 
 <?php

@@ -26,7 +26,7 @@
 		<?php edit_post_link( __( 'Edit', 'flatline' ), '<footer><p class="edit-link">', '</p></footer>' ); ?>
 	</article>
 
-	<?php comments_template( '', true ); ?>
+	<?php if ( function_exists( 'flatline_page_comments' ) ) flatline_page_comments(); ?>
 
 <?php endwhile; ?>
 

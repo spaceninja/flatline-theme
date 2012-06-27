@@ -198,7 +198,7 @@ add_filter( 'excerpt_length', 'flatline_excerpt_length' );
  */
 if ( ! function_exists( 'flatline_continue_reading_link' ) ) :
 	function flatline_continue_reading_link() {
-		return ' <a href="'. esc_url( get_permalink() ) . '" class="more">' . __( 'Keep&nbsp;reading', 'flatline' ) . '</a>';
+		return ' <a href="'. esc_url( get_permalink() ) . '" class="more-link">' . __( 'Keep&nbsp;reading', 'flatline' ) . '</a>';
 	}
 endif;
 
@@ -279,6 +279,22 @@ if ( ! function_exists( 'flatline_posted_in' ) ) :
 endif;
 
 /**
+ * Prints the post content, so we can override in child themes
+ */
+if ( ! function_exists( 'flatline_post_content_or_excerpt' ) ) :
+	function flatline_post_content_or_excerpt() {
+		if ( is_home() ) :
+			if ( function_exists( 'flatline_post_thumb' ) ) flatline_post_thumb();
+			the_content( __( 'Keep reading…', 'flatline' ) );
+			numbered_in_page_links( array ( 'before' => '<nav class="post-nav"><p><strong>' . __( 'Pages:', 'flatline' ) . '</strong> ', 'after' => '</p></nav>' ) );
+		else :
+			if ( function_exists( 'flatline_excerpt_thumb' ) ) flatline_excerpt_thumb();
+			the_excerpt();
+		endif;
+	}
+endif;
+
+/**
  * Prints the post footer, so we can override in child themes
  */
 if ( ! function_exists( 'flatline_post_footer' ) ) :
@@ -286,6 +302,15 @@ if ( ! function_exists( 'flatline_post_footer' ) ) :
 		<p class="comments"><?php comments_popup_link( __( 'Leave a comment', 'flatline' ), __( '1 Comment', 'flatline' ), __( '% Comments', 'flatline' ) ); ?></p>
 		<p class="taxonomy"><?php flatline_posted_in(); ?></p>
 	<?php }
+endif;
+
+/**
+ * Prints the comments for a page, so we can override in child themes
+ */
+if ( ! function_exists( 'flatline_page_comments' ) ) :
+	function flatline_page_comments() {
+		comments_template( '', true );
+	}
 endif;
 
 /**

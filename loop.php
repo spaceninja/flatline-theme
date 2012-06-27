@@ -23,14 +23,7 @@
 			<?php if ( function_exists( 'flatline_post_header' ) ) flatline_post_header(); ?>
 		</header>
 		<div class="post-content">
-			<?php if ( is_home() ) :
-				if ( function_exists( 'flatline_post_thumb' ) ) flatline_post_thumb();
-				the_content( __( 'Keep reading…', 'flatline' ) );
-				numbered_in_page_links( array ( 'before' => '<nav class="post-nav"><p><strong>' . __( 'Pages:', 'flatline' ) . '</strong> ', 'after' => '</p></nav>' ) );
-			else :
-				if ( function_exists( 'flatline_excerpt_thumb' ) ) flatline_excerpt_thumb();
-				the_excerpt();
-			endif; ?>
+			<?php if ( function_exists( 'flatline_post_content_or_excerpt' ) ) flatline_post_content_or_excerpt(); ?>
 		</div>
 		<footer>
 			<?php if ( function_exists( 'flatline_post_footer' ) ) flatline_post_footer(); ?>
