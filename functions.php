@@ -106,8 +106,8 @@ function flatline_head_cleanup() {
 	remove_action('wp_head', 'adjacent_posts_rel_link_wp_head', 10, 0);
 	remove_action('wp_head', 'wp_generator');
 	remove_action('wp_head', 'wp_shortlink_wp_head', 10, 0);
-	remove_action('wp_head', 'noindex', 1);	
-	remove_action('wp_head', 'rel_canonical');	
+	remove_action('wp_head', 'noindex', 1);
+	remove_action('wp_head', 'rel_canonical');
 }
 add_action('init', 'flatline_head_cleanup');
 
@@ -292,6 +292,15 @@ if ( ! function_exists( 'flatline_post_content_or_excerpt' ) ) :
 			the_excerpt();
 		endif;
 	}
+endif;
+
+/**
+ * Prints the post header, so we can override in child themes
+ */
+if ( ! function_exists( 'flatline_post_header' ) ) :
+	function flatline_post_header() { ?>
+		<p class="byline"><?php flatline_posted_on(); ?></p>
+	<?php }
 endif;
 
 /**

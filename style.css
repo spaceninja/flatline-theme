@@ -2,7 +2,7 @@
 Theme Name:    Flatline
 Theme URI:     http://spaceninja.com/flatline
 Description:   Flatline is a base theme for WordPress with HTML5 awesomesauce added.
-Version:       1.0
+Version:       1.1
 Author:        Scott Vandehey
 Author URI:    http://spaceninja.com/
 License:       GNU General Public License v3.0
@@ -24,6 +24,9 @@ TODO:
 - wordpress theme check
 
 - http://wp.smashingmagazine.com/2011/11/01/building-wordpress-themes-you-can-sell/
+
+Version History
+1.1 - Added flatline_post_header();
 
 */
 

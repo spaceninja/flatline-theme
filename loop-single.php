@@ -14,8 +14,7 @@
 
 	<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 		<header>
-			<h1 class="post-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h1>
-			<p class="byline"><?php flatline_posted_on(); ?></p>
+			<h1 class="post-title"><?php the_title(); ?></h1>
 			<?php if ( function_exists( 'flatline_post_header' ) ) flatline_post_header(); ?>
 		</header>
 		<div class="post-content">
