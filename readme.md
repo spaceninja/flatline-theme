@@ -10,7 +10,7 @@ Flatline uses the new HTML5 doctype and semantic elements, such as Article, Head
 
 ## Requirements:
 
-Flatline requires at least WordPress 3.0 (released June 2010). Sorry if you haven't updated yet, but dropping support for the 2.x versions let me get this theme developed in a *much* faster.
+Flatline requires WordPress 3.1 - it's possible it will work in older versions, but you will miss out on new features.
 
 ## Features:
 
@@ -71,6 +71,5 @@ Flatline requires at least WordPress 3.0 (released June 2010). Sorry if you have
 
 ## Changelog:
 
-### 1.0: October 17th, 2011
-
-* Initial release
+* 1.0: Initial release
+* 1.1 - Added flatline_post_header();
