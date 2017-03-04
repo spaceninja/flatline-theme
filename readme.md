@@ -1,4 +1,6 @@
-# Flatline WordPress Theme [spaceninja.com/flatline](http://spaceninja.com/flatline)
+:warning: **Attention:** This theme for WordPress 3.0 is very old and no longer supported. Use at your own risk!
+
+# Flatline WordPress Theme
 
 ## Summary:
 
